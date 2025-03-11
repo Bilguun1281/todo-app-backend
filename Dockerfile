@@ -1,14 +1,8 @@
-# Use official OpenJDK image
-FROM openjdk:17-jdk-slim
+FROM maven:3.8.5-openjdk-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the built JAR file into the container
-COPY target/*.jar app.jar
-
-# Expose the port your Spring Boot app runs on
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build target\Todo-0.0.1-SNAPSHOT.jar todo.jar
 EXPOSE 8080
-
-# Command to run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","todo.jar"]
