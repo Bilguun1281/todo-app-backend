@@ -31,14 +31,4 @@ public class MyUser {
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;  // One user can have many tasks
-
-
-
-
-
-
-
-    
-    // Lombok @Data automatically generates getters, setters, toString, equals, and hashCode
-    // Lombok @NoArgsConstructor generates a no-args constructor
 }

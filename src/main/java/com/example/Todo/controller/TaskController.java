@@ -36,7 +36,7 @@ public class TaskController {
         return taskService.updateTask(taskId, taskDetails);  // Update task with new details
     }
 
-    // Delete a taskz
+    // Delete a task
     @DeleteMapping("/{taskId}")
     public ResponseEntity<Void> deleteTask(@PathVariable Long taskId) {
         taskService.deleteTask(taskId);  // Delete the task

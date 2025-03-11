@@ -100,17 +100,6 @@ public class UserController {
         }
     }
 
-    // Get user by username (Login simulation for now)
-    @GetMapping("/login/{username}")
-    public ResponseEntity<?> loginUser(@PathVariable String username) {
-        Optional<MyUser> user = userService.findByUsername(username);
-        
-        if (user.isEmpty()) {
-            return ResponseEntity.status(404).body("User not found!"); // 404 Not Found
-        }
-
-        return ResponseEntity.ok(user.get()); // 200 OK
-    }
 
     @GetMapping("/all")
     public List<MyUser> getAllUsers() {

@@ -30,7 +30,4 @@ public class Task {
     @JsonIgnore
     private MyUser user;  // Many tasks can belong to one user
     
-
-    // Lombok @Data automatically generates getters, setters, toString, equals, and hashCode
-    // Lombok @NoArgsConstructor generates a no-args constructor
 }
